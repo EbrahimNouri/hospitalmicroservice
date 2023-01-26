@@ -1,15 +1,11 @@
 package ir.hospital.hospitalmicroservice.repository;
 
-import ir.hospital.entity.Clinic;
-import ir.hospital.repository.BaseRepository;
-import org.hibernate.Session;
+import ir.hospital.hospitalmicroservice.entity.Clinic;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
-import java.util.Optional;
 
-public interface ClinicRepository extends BaseRepository<Clinic> {
+public interface ClinicRepository extends JpaRepository<Clinic, Long> {
 
-    Optional<List<Clinic>> findAllClinics(Session session);
-
-
+    List<Clinic> findAll();
 }
