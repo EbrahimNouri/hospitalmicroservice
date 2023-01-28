@@ -1,20 +1,20 @@
 package ir.hospital.hospitalmicroservice.service;
 
-import ir.hospital.hospitalmicroservice.entity.Patient;
-import ir.hospital.hospitalmicroservice.exception.NotFoundException;
-import ir.hospital.hospitalmicroservice.repository.PatientRepository;
+import ir.hospital.hospitalmicroservice.entity.Prescription;
+import ir.hospital.hospitalmicroservice.repository.PrescriptionRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @AllArgsConstructor
 @Service
 public class PrescriptionServiceImpl implements PrescriptionService {
 
-    private final PatientRepository repository;
+    private final PrescriptionRepository repository;
 
     @Override
-    public Patient findByNationalCode(String nationalCode) {
-        return repository.findByNationalCode(nationalCode)
-                .orElseThrow(() -> new NotFoundException("Patient by " + nationalCode + "national ccode not found"));
+    public List<Prescription> fetchAllByPatientCode(String nationalCode){
+        return repository.findByPatientNationalCode(nationalCode);
     }
 }

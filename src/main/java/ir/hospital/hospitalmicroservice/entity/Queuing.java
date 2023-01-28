@@ -10,7 +10,6 @@ import java.time.LocalDate;
 @Setter
 @NoArgsConstructor
 @Entity
-@Builder
 @ToString
 @AllArgsConstructor
 public class Queuing  extends BaseEntity{
@@ -27,5 +26,13 @@ public class Queuing  extends BaseEntity{
     @ManyToOne
     private Patient patient;
 
-
+    @Builder
+    public Queuing(Long id, LocalDate localDate, LocalDateType localDateType, QueuingCheck queuingCheck, Doctor doctor, Patient patient) {
+        super(id);
+        this.localDate = localDate;
+        this.localDateType = localDateType;
+        this.queuingCheck = queuingCheck;
+        this.doctor = doctor;
+        this.patient = patient;
+    }
 }

@@ -1,7 +1,9 @@
 package ir.hospital.hospitalmicroservice.service;
 
-import ir.hospital.hospitalmicroservice.entity.Patient;
+import ir.hospital.hospitalmicroservice.entity.Prescription;
+
+import java.util.List;
 
 public interface PrescriptionService {
-    Patient findByNationalCode(String nationalCode);
+    List<Prescription> fetchAllByPatientCode(String nationalCode);
 }
