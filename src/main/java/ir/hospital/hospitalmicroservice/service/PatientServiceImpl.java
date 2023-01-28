@@ -7,6 +7,8 @@ import ir.hospital.hospitalmicroservice.repository.PatientRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @AllArgsConstructor
 public class PatientServiceImpl implements PatientService {
@@ -40,5 +42,10 @@ public class PatientServiceImpl implements PatientService {
     public Patient findById(Long id) {
         return repository.findById(id).orElseThrow
                 (() -> new NotFoundException("patient with id " + id + " not found"));
+    }
+
+    @Override
+    public List<Patient> fetchAll(){
+        return repository.findAll();
     }
 }

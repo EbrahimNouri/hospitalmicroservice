@@ -14,11 +14,6 @@ public class ClinicServiceImpl  implements ClinicService{
     private final ClinicRepository repository;
 
     @Override
-    public List<Clinic> findAll() {
-        return repository.findAll();
-    }
-
-    @Override
     public List<Clinic> fetchAll(){
         return repository.findAll();
     }

@@ -7,6 +7,8 @@ import ir.hospital.hospitalmicroservice.repository.DoctorRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @AllArgsConstructor
 public class DoctorServiceImpl implements DoctorService {
@@ -27,5 +29,10 @@ public class DoctorServiceImpl implements DoctorService {
             throw new Exist("doctor with this employee number " + doctor.getEmployeeNumber() + " already exists");
 
         repository.save(doctor);
+    }
+
+    @Override
+    public List<Doctor> fetchAllDoctorByClinicId(Long clinicId) {
+        return repository.fetchByClinic(clinicId);
     }
 }

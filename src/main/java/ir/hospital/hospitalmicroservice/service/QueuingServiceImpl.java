@@ -23,4 +23,9 @@ public class QueuingServiceImpl implements QueuingService {
     public List<Queuing> findByPatientId(Long id){
         return repository.findQueuingsByPatientId(id);
     }
+
+    @Override
+    public void addQueuing(Queuing queuing) {
+        repository.save(queuing);
+    }
 }

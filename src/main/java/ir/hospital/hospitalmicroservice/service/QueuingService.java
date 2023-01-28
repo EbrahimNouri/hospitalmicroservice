@@ -8,4 +8,6 @@ public interface QueuingService {
     List<Queuing> findAllByLocalDateAfterNow();
 
     List<Queuing> findByPatientId(Long id);
+
+    void addQueuing(Queuing queuing);
 }
