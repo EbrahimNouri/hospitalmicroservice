@@ -18,4 +18,5 @@ public interface SecretaryRepository extends JpaRepository<Secretary, Long> {
     @Query("select sd from Secretary s join s.clinic sc join sc.doctors sd where s = :secretary")
     List<Doctor> showAllDoctors(Secretary secretary);
 
+    boolean existsByNationalCode(String nationalCode);
 }

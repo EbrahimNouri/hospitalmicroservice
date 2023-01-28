@@ -9,4 +9,5 @@ public interface DoctorRepository extends JpaRepository<Doctor, Long> {
 
     Optional<Doctor> findByNationalCode(String nationalCode);
 
+    boolean existsByEmployeeNumber(String employeeNumber);
 }

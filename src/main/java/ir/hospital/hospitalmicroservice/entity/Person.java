@@ -2,17 +2,15 @@ package ir.hospital.hospitalmicroservice.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.MappedSuperclass;
-
 import lombok.*;
 
 
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
 @MappedSuperclass
 @ToString
-public abstract class Person  extends BaseEntity {
+public class Person extends BaseEntity {
     private String firstname;
 
     private String lastname;
@@ -27,4 +25,13 @@ public abstract class Person  extends BaseEntity {
 
     private String address;
 
+    protected Person(Long id, String firstname, String lastname, String nationalCode, String password, String phoneNumber, String address) {
+        super(id);
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.nationalCode = nationalCode;
+        this.password = password;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
+    }
 }
