@@ -9,5 +9,4 @@ public interface PatientRepository extends JpaRepository<Patient, Long> {
     Optional<Patient> findByNationalCode(String nationalCode);
 
     boolean existsByNationalCode(String nationalCode);
-
 }

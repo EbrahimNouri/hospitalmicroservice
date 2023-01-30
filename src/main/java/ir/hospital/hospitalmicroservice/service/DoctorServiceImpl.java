@@ -1,7 +1,7 @@
 package ir.hospital.hospitalmicroservice.service;
 
 import ir.hospital.hospitalmicroservice.entity.Doctor;
-import ir.hospital.hospitalmicroservice.exception.Exist;
+import ir.hospital.hospitalmicroservice.exception.ExistException;
 import ir.hospital.hospitalmicroservice.exception.NotFoundException;
 import ir.hospital.hospitalmicroservice.repository.DoctorRepository;
 import lombok.AllArgsConstructor;
@@ -24,9 +24,9 @@ public class DoctorServiceImpl implements DoctorService {
     @Override
     public void signup(Doctor doctor) {
         if (repository.existsById(doctor.getId()))
-            throw new Exist("doctor with this id " + doctor.getId() + " already exists");
+            throw new ExistException("doctor with this id " + doctor.getId() + " already exists");
         if (repository.existsByEmployeeNumber(doctor.getEmployeeNumber()))
-            throw new Exist("doctor with this employee number " + doctor.getEmployeeNumber() + " already exists");
+            throw new ExistException("doctor with this employee number " + doctor.getEmployeeNumber() + " already exists");
 
         repository.save(doctor);
     }

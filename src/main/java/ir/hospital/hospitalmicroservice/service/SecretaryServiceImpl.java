@@ -3,7 +3,7 @@ package ir.hospital.hospitalmicroservice.service;
 import ir.hospital.hospitalmicroservice.entity.Doctor;
 import ir.hospital.hospitalmicroservice.entity.Patient;
 import ir.hospital.hospitalmicroservice.entity.Secretary;
-import ir.hospital.hospitalmicroservice.exception.Exist;
+import ir.hospital.hospitalmicroservice.exception.ExistException;
 import ir.hospital.hospitalmicroservice.exception.NotFoundException;
 import ir.hospital.hospitalmicroservice.repository.SecretaryRepository;
 import lombok.AllArgsConstructor;
@@ -36,9 +36,9 @@ public class SecretaryServiceImpl implements SecretaryService {
     @Override
     public void signup(Secretary secretary) {
         if (repository.existsById(secretary.getId()))
-            throw new Exist("secretary with this id is already registered");
+            throw new ExistException("secretary with this id is already registered");
         if (repository.existsByNationalCode(secretary.getNationalCode()))
-            throw new Exist("secretary with this national code is already registered");
+            throw new ExistException("secretary with this national code is already registered");
 
         repository.save(secretary);
     }

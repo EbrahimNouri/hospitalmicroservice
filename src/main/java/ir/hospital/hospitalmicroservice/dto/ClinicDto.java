@@ -27,5 +27,4 @@ public class ClinicDto {
                         .map(DoctorDto::doctorToDoctorDto).collect(Collectors.toSet()))
                 .build();
     }
-
 }
